@@ -1,0 +1,239 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+/* ———— 核心：将 f.jpg 设为整个网页背景 ———— */
+body {
+    /* 背景图基础设置：覆盖全屏、居中、不重复 */
+    background-image: url("f.jpg");
+    background-size: cover; /* 背景图自适应屏幕尺寸，确保无空白 */
+    background-position: center center; /* 背景图水平+垂直居中，避免关键部分裁剪 */
+    background-repeat: no-repeat; /* 禁止背景图重复平铺 */
+    background-attachment: fixed; /* 背景图固定，滚动时不跟随移动，保持全屏效果 */
+    background-color: #333; /* 背景图加载失败时的备用色，避免纯白刺眼 */
+    
+    /* 文字基础样式：确保在背景上可读 */
+    color: #f5f5f5; /* 浅灰色文字，比纯白柔和，比深灰醒目 */
+    line-height: 1.7; /* 行高优化，提升长文本阅读体验 */
+}
+
+/* ———— 头部（header）样式：与网页背景融合，同时突出内容 ———— */
+header {
+    /* 半透明深色背景：既与网页背景呼应，又让导航内容清晰 */
+    background-color: rgba(44, 62, 80, 0.85); /* 深色+85%透明度，模糊背景但不遮挡 */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* 阴影增强层次感，与网页背景区分 */
+    backdrop-filter: blur(5px); /* 背景模糊效果（可选），让头部更有质感（部分浏览器支持） */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 标题图片：在网页背景上更突出 */
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.6); /* 白色半透明边框，强化图片轮廓 */
+    opacity: 1; /* 取消原透明效果，让logo在模糊背景上更清晰 */
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff; /* 纯白标题，突出品牌名 */
+}
+
+/* 导航栏样式 */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.15); /* 悬浮时半透明白色背景，增强反馈 */
+    color: #fff; /* 悬浮时文字变白，更醒目 */
+}
+
+/* ———— hero区域样式：与网页背景融合，避免重复叠加 ———— */
+#hero {
+    /* 取消原hero区域独立背景，改用网页统一背景，仅添加半透明遮罩增强文字对比 */
+    position: relative;
+    padding: 80px 30px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* 半透明遮罩：仅覆盖hero区域，避免文字与网页背景对比度不足 */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3); /* 较浅遮罩，保留网页背景细节 */
+    z-index: 1;
+}
+
+#hero h2, #hero p, #hero button {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff; /* 纯白标题，突出核心口号 */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3); /* 文字阴影，增强与背景的区分度 */
+}
+
+#hero p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #f8f8f8; /* 接近纯白的文字，确保长文本可读 */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+/* 按钮：在网页背景上更醒目 */
+#hero button {
+    background-color: #e74c3c; /* 红色按钮，强对比色吸引注意力 */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231,76,60,0.4); /* 红色阴影，强化按钮立体感 */
+}
+
+#hero button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231,76,60,0.5);
+}
+
+/* ———— 内容区域（about/token/community）：增强背景区分度 ———— */
+#about, #token, #community {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 30px; /* 增加内边距，让内容与边缘有距离 */
+    background-color: rgba(20, 20, 20, 0.7); /* 深色半透明背景，包裹内容区域 */
+    border-radius: 10px; /* 圆角优化，避免生硬 */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* 阴影增强，让内容区域“浮”在网页背景上 */
+    backdrop-filter: blur(3px); /* 背景模糊（可选），提升高级感 */
+}
+
+/* 区域标题：突出层级 */
+#about h2, #token h2, #community h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db; /* 蓝色边框，在深色背景上更醒目 */
+    display: inline-block;
+}
+
+/* 段落文字：确保可读性 */
+#about p, #community p {
+    margin-bottom: 15px;
+    color: #f0f0f0;
+}
+
+/* 代币信息列表：优化排版 */
+#token ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#token li {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* 列表项前的蓝色圆点：增强引导 */
+#token li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3498db; /* 蓝色圆点，与标题边框呼应 */
+}
+
+/* 社区链接：突出交互性 */
+#community a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#community a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ———— 页脚（footer）样式：与网页背景融合 */
+footer {
+    background-color: rgba(44, 62, 80, 0.9); /* 深色高透明度背景，比头部略深 */
+    color: #f0f0f0;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2); /* 顶部阴影，与内容区域区分 */
+}
+
+footer p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+/* ———— 响应式适配：手机端优化 */
+@media (max-width: 768px) {
+    /* 头部适配：垂直排列 */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    /* 导航栏适配：换行排列 */
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }

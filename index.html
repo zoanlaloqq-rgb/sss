@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华田园犬 - 中国人的狗狗币</title>
+    <!-- 关联 CSS 文件，背景逻辑在 style.css 中实现 -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 核心修改：控制6张图片分两行（每行3张），且与文字对齐 */
+        .dog-img-group {
+            max-width: 720px; /* 3张图宽度(220px*3) + 2个间距(15px*2) = 690px，留30px容错 */
+            margin: 20px auto 0; /* 上下间距20px，左右自动（实现整体水平居中，与文字对齐） */
+        }
+        .dog-img-row {
+            display: flex;
+            justify-content: space-between; /* 图片均匀分布，确保每行两端对齐 */
+            gap: 15px; /* 图片间间距，避免拥挤 */
+            margin-bottom: 15px; /* 两行图片之间的垂直间距 */
+        }
+        .dog-img-row img {
+            width: 220px; /* 固定宽度，确保每行3张图尺寸一致 */
+            height: 180px; /* 固定高度，避免图片变形 */
+            object-fit: cover; /* 按比例填充图片，不拉伸 */
+            border-radius: 6px; /* 轻微圆角提升美观度 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15); /* 加深阴影，在网页背景上更突出 */
+            flex: 1; /* 确保图片在小屏幕下能自适应收缩 */
+            min-width: 150px; /* 最小宽度限制，防止手机端图片过窄 */
+            border: 1px solid rgba(255,255,255,0.5); /* 白色边框，与网页背景区分 */
+        }
+        /* 响应式适配：屏幕宽度小于600px时，改为每行1张图 */
+        @media (max-width: 600px) {
+            .dog-img-row {
+                flex-direction: column; /* 垂直排列 */
+                align-items: center; /* 图片水平居中 */
+            }
+            .dog-img-row img {
+                width: 100%;
+                max-width: 300px; /* 手机端最大宽度限制 */
+                height: auto; /* 高度自动适应，防止变形 */
+                margin-bottom: 10px; /* 垂直排列时的图片间距 */
+            }
+            .dog-img-row:last-child img {
+                margin-bottom: 0; /* 最后一行图片取消底部间距 */
+            }
+        }
+
+        /* 确保about区域文字与图片容器对齐 */
+        #about {
+            max-width: 720px; /* 与图片容器宽度一致 */
+            margin: 0 auto; /* 整体水平居中 */
+            padding: 0 20px; /* 手机端左右留边距，避免文字贴边 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="a.jpeg" alt="中华田园犬 Logo">
+            <h1>中华田园犬</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">关于</a></li>
+                <li><a href="#token">代币信息</a></li>
+                <li><a href="#community">社区</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>中国人自己的狗狗币！</h2>
+        <p>中华田园犬，就是中国本土世代繁衍、自然筛选出来的狗狗的统称，它不是某一个特定的品种，而是一个庞大的“家族”。根据它们在不同地域长期适应后形成的某些特点，人们会通俗地叫它们：大黄狗、小黑狗、小白狗、四眼狗、黠灵、练庸、骁狼，它们忠诚、守护、朴实</p>
+        <button onclick="window.location.href='https://dexscreener.com/bsc/0x4444e08938649ad9f60eb0c41da56073560c3a35'">立即购买</button>
+    </section>
+
+    <section id="about">
+        <h2>我们的叙事</h2>
+        <p>中华田园犬是中国本土犬种，象征农村生活和忠诚精神。在meme币世界，中华田园犬是中国人的Doge，也是老祖宗严选，是时候支持自己的“土狗”了！这不是功能币，而是文化自信的表达。</p>
+        <!-- 图片区域：分两行，每行3张 -->
+        <div class="dog-img-group">
+            <div class="dog-img-row">
+                <img src="k.jpg" alt="中华田园犬图片1">
+                <img src="c.jpg" alt="中华田园犬图片2">
+                <img src="d.jpg" alt="中华田园犬图片3">
+            </div>
+            <div class="dog-img-row">
+                <img src="e.jpg" alt="中华田园犬图片4">
+                <img src="h.jpeg" alt="中华田园犬图片5">
+                <img src="i.jpeg" alt="中华田园犬图片6">
+            </div>
+        </div>
+    </section>
+
+    <section id="token">
+        <h2>代币信息</h2>
+    <ul>
+        <li><strong>合约地址：</strong> 0x4444e08938649ad9f60eb0c41da56073560c3a35</li>
+        <li><strong>链：</strong> Binance Smart Chain (BSC)</li>
+        <li><strong>当前价格：</strong> <span id="current-price">$0.0002500 USD</span></li>
+        <li><strong>流动性：</strong> <span id="liquidity">$115K</span></li>
+        <li><strong>FDV：</strong> <span id="fdv">$250K</span></li>
+    </ul>
+
+    </section>
+
+    <section id="community">
+        <h2>加入社区</h2>
+        <p>X (Twitter): <a href="https://x.com/i/communities/1980841365367046330">中华田园犬社区</a></p>
+        <p>分享你的土狗故事，一起推向月球！</p>
+    </section>
+
+        <!-- 页脚区域：保持原有内容，统一缩进格式 -->
+    <footer>
+        <p>免责声明：这不是投资建议，加密货币有风险。请自行研究 (DYOR)。</p>
+        <p>&copy; 2025 中华田园犬社区</p>
+    </footer>
+
+    <script>
+    const tokenAddress = '0x4444e08938649ad9f60eb0c41da56073560c3a35';
+    const apiUrl = `https://api.dexscreener.com/latest/dex/tokens/${tokenAddress}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Assuming the response has 'pairs' array
+            const pair = data.pairs[0];
+            
+            // 更新当前价格
+            document.getElementById('current-price').innerText = `$${pair.priceUsd} USD`;
+            
+            // 更新流动性 (转换为K)
+            const liquidityK = Math.round(pair.liquidity.usd / 1000);
+            document.getElementById('liquidity').innerText = `$${liquidityK}K`;
+            
+            // 更新FDV (转换为K)
+            const fdvK = Math.round(pair.fdv / 1000);
+            document.getElementById('fdv').innerText = `$${fdvK}K`;
+        })
+        .catch(error => {
+            console.error('Error fetching token data:', error);
+        });
+</script>
